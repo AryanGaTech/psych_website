@@ -1,14 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
-import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
+import {Navbar} from './components/Navbar';
+import {Home} from './pages/Home';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      <h1>React App</h1>
-      </header>
-      <body></body>
+      <Navbar />
+      <Home />
+      <Home />
     </div>
   );
 }

@@ -4,12 +4,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { extendTheme } from '@chakra-ui/react'
 import { ChakraProvider } from '@chakra-ui/react'
+
+// Custom Theme
+const theme = extendTheme({
+  fonts: {
+    // heading: '"Avenir Next", sans-serif', // for headings
+    body: '"Roboto", sans-serif', // for body text
+  },
+})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <App />
     </ChakraProvider>
   </React.StrictMode>
