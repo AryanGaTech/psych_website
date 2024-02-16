@@ -22,8 +22,13 @@ export class LogCard extends Component {
                         height='44px'
                         width='120px'
                         border='2px'
-                        borderColor='green.500'
-                        bg='green.500'
+                        borderColor='blue.500'
+                        bg='blue.500'
+                        color='white'
+                        _hover={{
+                            bg: 'white', // Keep the background white or change as needed
+                            color: 'black', // Change text color to black when clicked
+                        }}
                         >
                         Join Us
                     </Button> 

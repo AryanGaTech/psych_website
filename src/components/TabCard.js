@@ -6,9 +6,11 @@ export class TabCard extends Component {
     render() {
         return (
             <HStack
-            justify="center">
+            justify="center" 
+            spacing={10}
+            >
                 <a href="https://www.google.com">Home</a>
-                <a href="https://www.google.com">Tutorial</a>
+                <a href="https://www.google.com">Features</a>
                 <a href="https://www.google.com">Connect</a>
             </HStack>
             
