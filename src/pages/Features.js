@@ -35,7 +35,7 @@ export class Features extends Component {
                         </Heading>
                         <SimpleGrid columns={2} spacing={10}>
                             <Box bg='blue.200' height='20vh' width='45vh' borderRadius='lg'>
-                                <p>Sarvesh</p>
+                                <p></p>
                             </Box>
                             <Box bg='blue.200' height='20vh' width='45vh' borderRadius='lg'></Box>
                             <Box bg='blue.200' height='20vh' width='45vh' borderRadius='lg'></Box>
