@@ -10,7 +10,7 @@ export class Connect extends Component {
                 bg='white'>
                 <Box
                     w = '60vw'
-                    h = '50vh'
+                    h = '40vh'
                     bg= 'white'
                     display='flex'
                     padding={10}
@@ -18,7 +18,7 @@ export class Connect extends Component {
                     justifyContent='center'>
                         <VStack>
                         <Heading
-                            fontSize='4xl'
+                            fontSize='6xl'
                             letterSpacing='tighter'
                             lineHeight='shorter'
                             textAlign='center'
@@ -26,7 +26,7 @@ export class Connect extends Component {
                             What seems to be the problem?
                         </Heading>
                         <Input
-                            placeholder="Type here..."
+                            placeholder="Enter your journal entry here..."
                             size="lg"
                             width="100vh"
                             mt={5} />

@@ -1,4 +1,5 @@
 import './App.css';
+import { Footer } from './components/Footer';
 import {Navbar} from './components/Navbar';
 import { Connect } from './pages/Connect';
 import { Features } from './pages/Features';
@@ -11,6 +12,7 @@ function App() {
       <Home />
       <Features />
       <Connect />
+      <Footer />
     </div>
   );
 }
