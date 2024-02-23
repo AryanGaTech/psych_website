@@ -96,7 +96,8 @@ export class Home extends Component {
         </HStack>
 
         <HStack
-            width="30%" // Use "full" to match the parent's width or define a specific max-width
+            align={'left'}
+            width="full" // Use "full" to match the parent's width or define a specific max-width
             justifyContent="space-between"
             >
             <Input
@@ -121,11 +122,12 @@ export class Home extends Component {
                 <option value='option9'>Doctoral Degree</option>
             </Select>
         </HStack>
+        <Text fontSize='md'>Select Ethnicity</Text>
         <VStack
+            align={'left'}
             width="full" // Use "full" to match the parent's width or define a specific max-width
             justifyContent="space-between"
             >
-            <Text fontSize='md'>Select Ethnicity</Text>
             <CheckboxGroup colorScheme='green' defaultValue={['']}>
                 <Stack spacing={[1, 5]} direction={['row', 'column']}>
                     <Checkbox value='opt1'>American Indian or Alaskan Native</Checkbox>
@@ -156,6 +158,26 @@ export class Home extends Component {
                 size="lg"
                 />
         </HStack>
+        <Text fontsize='lg' >Select Symptoms</Text>
+        <VStack
+            align={'left'}
+            width="full" // Use "full" to match the parent's width or define a specific max-width
+            justifyContent="space-between"
+            >
+
+            {/* Checkbox for symptoms */}
+            <CheckboxGroup colorScheme='green' defaultValue={['']}>
+                <Stack spacing={[1, 5]} direction={['row', 'column']}>
+                    <Checkbox value='opt1'>Symptom 1</Checkbox>
+                    <Checkbox value='opt2'>Symptom 2</Checkbox>
+                    <Checkbox value='opt3'>Symptom 3</Checkbox>
+                    <Checkbox value='opt4'>Symptom 4</Checkbox>
+                    <Checkbox value='opt5'>Symptom 5</Checkbox>
+                    <Checkbox value='opt6'>Symptom 6</Checkbox>
+                </Stack>
+            </CheckboxGroup>
+
+        </VStack>
       </VStack>
             </ModalBody>
             <ModalFooter>
