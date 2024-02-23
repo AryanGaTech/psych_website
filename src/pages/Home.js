@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
+import { Checkbox, CheckboxGroup, Stack } from '@chakra-ui/react'
 import {
-  Box,
-  Center,
-  VStack,
-  Heading,
-  HStack,
-  Button,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
-  ModalBody,
-  ModalFooter,
-  Input
+    Box,
+    Center,
+    VStack,
+    Heading,
+    HStack,
+    Button,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalCloseButton,
+    ModalBody,
+    ModalFooter,
+    Input, Select,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 
@@ -84,18 +85,9 @@ export class Home extends Component {
                 size="lg"
             />
             <Input
-                placeholder="Last Name"
+                placeholder="M"
                 size="lg"
-            />
-        </HStack>
-
-        <HStack
-            width="full" // Use "full" to match the parent's width or define a specific max-width
-            justifyContent="space-between"
-            >
-            <Input
-                placeholder="First Name"
-                size="lg"
+                width="20%"
             />
             <Input
                 placeholder="Last Name"
@@ -104,15 +96,11 @@ export class Home extends Component {
         </HStack>
 
         <HStack
-            width="full" // Use "full" to match the parent's width or define a specific max-width
+            width="30%" // Use "full" to match the parent's width or define a specific max-width
             justifyContent="space-between"
             >
             <Input
-                placeholder="First Name"
-                size="lg"
-            />
-            <Input
-                placeholder="Last Name"
+                placeholder="Age"
                 size="lg"
             />
         </HStack>
@@ -121,14 +109,49 @@ export class Home extends Component {
             width="full" // Use "full" to match the parent's width or define a specific max-width
             justifyContent="space-between"
             >
+            <Select placeholder='Select Education'>
+                <option value='option1'>No Schooling</option>
+                <option value='option2'>Some High School or Less</option>
+                <option value='option3'>High School Graduate/GED</option>
+                <option value='option4'>Some College</option>
+                <option value='option5'>Associate's Degree</option>
+                <option value='option6'>Bachelor's Degree</option>
+                <option value='option7'>Some Graduate School</option>
+                <option value='option8'>Master's Degree</option>
+                <option value='option9'>Doctoral Degree</option>
+            </Select>
+        </HStack>
+        <HStack
+            width="full" // Use "full" to match the parent's width or define a specific max-width
+            justifyContent="space-between"
+            >
+            <Text fontSize='lg'>Select Ethnicity</Text>
+            <CheckboxGroup colorScheme='green' defaultValue={['naruto', 'kakashi']}>
+                <Stack spacing={[1, 5]} direction={['column', 'row']}>
+                    <Checkbox value='naruto'>Naruto</Checkbox>
+                    <Checkbox value='sasuke'>Sasuke</Checkbox>
+                    <Checkbox value='kakashi'>Kakashi</Checkbox>
+                </Stack>
+            </CheckboxGroup>
+        </HStack>
+
+        <HStack
+            width="full" // Use "full" to match the parent's width or define a specific max-width
+            justifyContent="space-between"
+            >
             <Input
-                placeholder="First Name"
+                placeholder="Veteran Status"
                 size="lg"
             />
+        </HStack>
+        <HStack
+            width="full" // Use "full" to match the parent's width or define a specific max-width
+            justifyContent="space-between"
+            >
             <Input
-                placeholder="Last Name"
+                placeholder="History of Substance Use"
                 size="lg"
-            />
+                />
         </HStack>
       </VStack>
             </ModalBody>
