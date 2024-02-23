@@ -14,7 +14,7 @@ import {
     ModalCloseButton,
     ModalBody,
     ModalFooter,
-    Input, Select,
+    Input, Select, Text
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 
@@ -109,7 +109,7 @@ export class Home extends Component {
             width="full" // Use "full" to match the parent's width or define a specific max-width
             justifyContent="space-between"
             >
-            <Select placeholder='Select Education'>
+            <Select placeholder='Select Education' size={'lg'}>
                 <option value='option1'>No Schooling</option>
                 <option value='option2'>Some High School or Less</option>
                 <option value='option3'>High School Graduate/GED</option>
@@ -121,28 +121,31 @@ export class Home extends Component {
                 <option value='option9'>Doctoral Degree</option>
             </Select>
         </HStack>
-        <HStack
+        <VStack
             width="full" // Use "full" to match the parent's width or define a specific max-width
             justifyContent="space-between"
             >
-            <Text fontSize='lg'>Select Ethnicity</Text>
-            <CheckboxGroup colorScheme='green' defaultValue={['naruto', 'kakashi']}>
-                <Stack spacing={[1, 5]} direction={['column', 'row']}>
-                    <Checkbox value='naruto'>Naruto</Checkbox>
-                    <Checkbox value='sasuke'>Sasuke</Checkbox>
-                    <Checkbox value='kakashi'>Kakashi</Checkbox>
+            <Text fontSize='md'>Select Ethnicity</Text>
+            <CheckboxGroup colorScheme='green' defaultValue={['']}>
+                <Stack spacing={[1, 5]} direction={['row', 'column']}>
+                    <Checkbox value='opt1'>American Indian or Alaskan Native</Checkbox>
+                    <Checkbox value='opt2'>Asian</Checkbox>
+                    <Checkbox value='opt3'>Black or African Descent</Checkbox>
+                    <Checkbox value='opt4'>Hispanic</Checkbox>
+                    <Checkbox value='opt5'>White</Checkbox>
+                    <Checkbox value='opt6'>Other</Checkbox>
                 </Stack>
             </CheckboxGroup>
-        </HStack>
+        </VStack>
 
         <HStack
             width="full" // Use "full" to match the parent's width or define a specific max-width
             justifyContent="space-between"
             >
-            <Input
-                placeholder="Veteran Status"
-                size="lg"
-            />
+            <Select placeholder='Veteran Status' size={'lg'}>
+                <option value='option1'>Yes</option>
+                <option value='option2'>No</option>
+            </Select>
         </HStack>
         <HStack
             width="full" // Use "full" to match the parent's width or define a specific max-width
