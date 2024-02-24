@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import { Checkbox, CheckboxGroup, Stack } from '@chakra-ui/react'
 import {
+    NumberInput,
+    NumberInputField,
+    NumberInputStepper,
+    NumberIncrementStepper,
+    NumberDecrementStepper,
+} from '@chakra-ui/react'
+import {
     Box,
     Center,
     VStack,
@@ -96,14 +103,18 @@ export class Home extends Component {
         </HStack>
 
         <HStack
-            align={'left'}
-            width="full" // Use "full" to match the parent's width or define a specific max-width
+            //align={'left'}
+            width='30%' // Use "full" to match the parent's width or define a specific max-width
             justifyContent="space-between"
             >
-            <Input
-                placeholder="Age"
-                size="lg"
-            />
+            <Text textSize={'lg'} align={'left'}>Age</Text>
+            <NumberInput min={0}>
+                <NumberInputField />
+                <NumberInputStepper>
+                    <NumberIncrementStepper />
+                    <NumberDecrementStepper />
+                </NumberInputStepper>
+            </NumberInput>
         </HStack>
 
         <HStack
