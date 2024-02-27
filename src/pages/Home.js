@@ -104,23 +104,17 @@ export class Home extends Component {
 
         <HStack
             //align={'left'}
-            width='30%' // Use "full" to match the parent's width or define a specific max-width
+            width='full' // Use "full" to match the parent's width or define a specific max-width
             justifyContent="space-between"
             >
             <Text textSize={'lg'} align={'left'}>Age</Text>
-            <NumberInput min={0}>
+            <NumberInput width={'30%'} min={0}>
                 <NumberInputField />
                 <NumberInputStepper>
                     <NumberIncrementStepper />
                     <NumberDecrementStepper />
                 </NumberInputStepper>
             </NumberInput>
-        </HStack>
-
-        <HStack
-            width="full" // Use "full" to match the parent's width or define a specific max-width
-            justifyContent="space-between"
-            >
             <Select placeholder='Select Education' size={'lg'}>
                 <option value='option1'>No Schooling</option>
                 <option value='option2'>Some High School or Less</option>
@@ -133,6 +127,7 @@ export class Home extends Component {
                 <option value='option9'>Doctoral Degree</option>
             </Select>
         </HStack>
+
         <Text fontSize='md'>Select Ethnicity</Text>
         <VStack
             align={'left'}
@@ -156,19 +151,27 @@ export class Home extends Component {
             justifyContent="space-between"
             >
             <Select placeholder='Veteran Status' size={'lg'}>
-                <option value='option1'>Yes</option>
-                <option value='option2'>No</option>
+                <option value='option1'>Veteran</option>
+                <option value='option2'>Non-veteran</option>
+                <option value='option3'>Prefer not to say</option>
             </Select>
         </HStack>
-        <HStack
+        <VStack
             width="full" // Use "full" to match the parent's width or define a specific max-width
             justifyContent="space-between"
             >
+            <Select placeholder='History of Substance Use' size={'lg'}>
+                <option value='option1'>Yes</option>
+                <option value='option2'>No</option>
+            </Select>
+            <Text>
+                If the patient has a history of substance use, please describe it below.
+            </Text>
             <Input
-                placeholder="History of Substance Use"
+                placeholder=" "
                 size="lg"
-                />
-        </HStack>
+            />
+        </VStack>
         <Text fontsize='lg' >Select Symptoms</Text>
         <VStack
             align={'left'}
