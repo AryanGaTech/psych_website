@@ -182,14 +182,32 @@ export class Home extends Component {
             {/* Checkbox for symptoms */}
             <CheckboxGroup colorScheme='green' defaultValue={['']}>
                 <Stack spacing={[1, 5]} direction={['row', 'column']}>
-                    <Checkbox value='opt1'>Symptom 1</Checkbox>
-                    <Checkbox value='opt2'>Symptom 2</Checkbox>
-                    <Checkbox value='opt3'>Symptom 3</Checkbox>
-                    <Checkbox value='opt4'>Symptom 4</Checkbox>
-                    <Checkbox value='opt5'>Symptom 5</Checkbox>
-                    <Checkbox value='opt6'>Symptom 6</Checkbox>
+                    <Checkbox value='opt1'>hallucinations</Checkbox>
+                    <Checkbox value='opt2'>disorganized speech</Checkbox>
+                    <Checkbox value='opt3'>disorganized motor behavior</Checkbox>
+                    <Checkbox value='opt4'>excessive sadness</Checkbox>
+                    <Checkbox value='opt5'>irritability</Checkbox>
+                    <Checkbox value='opt7'>Excessive fear and anxiety</Checkbox>
+                    <Checkbox value='opt8'>pervasive avoidance behaviors</Checkbox>
+                    <Checkbox value='opt9'>panic attacks</Checkbox>
+                    <Checkbox value='opt10'>repetitive behavior</Checkbox>
+                    <Checkbox value='opt11'>obsessional jealousy</Checkbox>
+                    <Checkbox value='opt12'>traumatic event in past</Checkbox>
+                    <Checkbox value='opt13'>memory and identity lapses</Checkbox>
+                    <Checkbox value='opt14'>disorganized perception, emotion, and consciousness</Checkbox>
+                    <Checkbox value='opt15'>disorganized motor control and behavior</Checkbox>
+                    <Checkbox value='opt16'>substance abuse</Checkbox>
+                    <Checkbox value='opt18'>low levels of self control</Checkbox>
+                    <Checkbox value='opt19'>pervasiveness</Checkbox>
+                    <Checkbox value='opt20'>inflexible/close-minded</Checkbox>
+                    <Checkbox value='opt21'>behaviors deviate from individual expectations</Checkbox>
                 </Stack>
             </CheckboxGroup>
+
+            <Input
+                placeholder="Describe symptoms further here: "
+                size="lg"
+            />
 
         </VStack>
       </VStack>
