@@ -14,7 +14,7 @@ A collaborative creation by the GT Big Data team, this project harnesses the pow
 To install and run this project locally, follow these steps:
 
 ```bash
-git clone https://github.com/<your-username>/<repository-name>.git
+git clone https://github.com/Sarvesh-Sathish/psych_website.git
 cd <repository-name>
 npm install
 ```
