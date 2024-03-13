@@ -128,7 +128,7 @@ export class Home extends Component {
             </Select>
         </HStack>
 
-        <Text fontSize='md'>Select Ethnicity</Text>
+        
         <VStack
             align={'left'}
             width="full" // Use "full" to match the parent's width or define a specific max-width
@@ -172,11 +172,10 @@ export class Home extends Component {
                 size="lg"
             />
         </VStack>
-        <Text fontsize='lg' >Select Symptoms</Text>
+        <Heading fontSize="sm">Select Symptoms</Heading>
         <VStack
-            align={'left'}
+            align="start"
             width="full" // Use "full" to match the parent's width or define a specific max-width
-            justifyContent="space-between"
             >
 
             {/* Checkbox for symptoms */}
