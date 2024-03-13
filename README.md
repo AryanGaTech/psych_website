@@ -31,9 +31,12 @@ Distributed under the MIT License. See LICENSE for more information.
 
 ## Acknowledgments
 
-Sarvesh Sathish
-Arshiya Rahman
-Emily Yang
-Aryan Shah
-Tony Ngari
-We would like to extend our gratitude to all the contributors who have helped shape this project.
+Special thanks to our dedicated team members for their contributions and hard work:
+
+- Sarvesh Sathish
+- Arshiya Rahman
+- Emily Yang
+- Aryan Shah
+- Tony Ngari
+
+We would also like to extend our gratitude to all the contributors who have helped shape this project. Your efforts and dedication are greatly appreciated.
