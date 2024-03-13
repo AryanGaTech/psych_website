@@ -15,6 +15,36 @@ To install and run this project locally, follow these steps:
 
 ```bash
 git clone https://github.com/Sarvesh-Sathish/psych_website.git
-cd <repository-name>
+cd psych_website
 npm install
 ```
+## Usage
+
+After installation, start the project with:
+```bash
+npm start
+```
+This will launch the project on localhost at the default port, usually 3000.
+
+## Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
+
+Fork the Project
+Create your Feature Branch (git checkout -b feature/AmazingFeature)
+Commit your Changes (git commit -m 'Add some AmazingFeature')
+Push to the Branch (git push origin feature/AmazingFeature)
+Open a Pull Request
+
+## License
+
+Distributed under the MIT License. See LICENSE for more information.
+
+## Acknowledgments
+
+Sarvesh Sathish
+Arshiya Rahman
+Emily Yang
+Aryan Shah
+Tony Ngari
+We would like to extend our gratitude to all the contributors who have helped shape this project.
