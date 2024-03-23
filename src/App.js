@@ -11,9 +11,9 @@ function App() {
       <>
           <div className="App">
               <Navbar/>
-              <Link to={'/'}><Home/></Link>
-              <Link to={'/features'}><Features/></Link>
-              <Link to={'/connect'}><Connect/></Link>
+              <Home/>
+              <Features/>
+              <Connect/>
               <Footer/>
           </div>
           <Routes>
@@ -34,6 +34,14 @@ function App() {
         <Footer />
       </div>
     );
+
+    <div className="App">
+              <Navbar/>
+              <Link to={'/'}><Home/></Link>
+              <Link to={'/features'}><Features/></Link>
+              <Link to={'/connect'}><Connect/></Link>
+              <Footer/>
+          </div>
      */
 }
 
