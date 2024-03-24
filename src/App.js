@@ -9,18 +9,14 @@ import {Link, Route, Routes} from 'react-router-dom';
 function App() {
   return (
       <>
-          <div className="App">
-              <Navbar/>
-              <Home/>
-              <Features/>
-              <Connect/>
-              <Footer/>
-          </div>
-          <Routes>
-              <Route path={'/'} element={<Home/>}/>
-              <Route path={'/connect'} element={<Connect/>}/>
-              <Route path={'/features'} element={<Features/>}/>
-          </Routes>
+          <Navbar />
+              <main className={"main-content"}>
+                  <Routes>
+                      <Route path={'/'} element={<Home />} />
+                      <Route path={'/connect'} element={<Connect />} />
+                      <Route path={'/features'} element={<Features/>}/>
+                  </Routes>
+              </main>
       </>
 
   );

@@ -9,11 +9,7 @@ import {Connect} from "../pages/Connect";
 export class TabCard extends Component {
     render() {
         return (
-            <HStack
-                justify="center"
-                spacing={10}
-            >
-
+            <nav className="nav container">
                 <div
                     className={"nav__menu"}
                     id="nav-menu"
@@ -37,8 +33,7 @@ export class TabCard extends Component {
                     </ul>
 
                 </div>
-            </HStack>
-
+            </nav>
         )
     }
 }
