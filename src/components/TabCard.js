@@ -4,6 +4,7 @@ import {NavLink} from "react-router-dom";
 import {Home} from "../pages/Home";
 import {Features} from "../pages/Features";
 import {Connect} from "../pages/Connect";
+import "./TabCard.css";
 
 
 export class TabCard extends Component {
