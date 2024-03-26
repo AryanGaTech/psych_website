@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import { Button, Box, Flex, HStack } from "@chakra-ui/react";
 import {NavLink} from "react-router-dom";
-import {Home} from "../pages/Home";
+import {Home} from "../pages/Home_And_About/Home";
 import {Features} from "../pages/Features";
 import {Connect} from "../pages/Connect";
 import "./TabCard.css";
