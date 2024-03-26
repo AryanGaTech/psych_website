@@ -1,0 +1,11 @@
+:root {
+    --header-height: 3.5rem;
+    --text-color: hsl(0, 0%, 0%);
+    --body-font: "Montserrat", sans-serif;
+    --second-font: "Dancing Script", cursive;
+    --h2-font-size: 1.25rem;
+    --small-font-size: 0.813rem;
+    --font-semi-bold: 600;
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
