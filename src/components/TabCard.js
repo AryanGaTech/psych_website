@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import {Home} from "../pages/Home_And_About/Home";
 import {Features} from "../pages/Features";
 import {Connect} from "../pages/Connect";
-import { Demographics } from "../pages/Demographics";
+import { Demographics } from "../pages/Demographics/Demographics";
 
 import "./TabCard.css";
 
