@@ -74,7 +74,7 @@ export class Home extends Component {
         </Box>
 
         {/* Get Started Modal */}
-        <Modal isOpen={isGetStartedModalOpen} onClose={this.closeGetStartedModal}>
+        <Modal isOpen={isGetStartedModalOpen} size={"full"} onClose={this.closeGetStartedModal}>
           <ModalOverlay />
           <ModalContent>
             <ModalHeader>Enter Demographic Info</ModalHeader>
@@ -180,6 +180,7 @@ export class Home extends Component {
 
             {/* Checkbox for symptoms */}
             <CheckboxGroup colorScheme='green' defaultValue={['']}>
+            <HStack spacing={210}>
                 <Stack spacing={[1, 5]} direction={['row', 'column']}>
                     <Checkbox value='opt1'>delusions</Checkbox>
                     <Checkbox value='opt2'>psychosis</Checkbox>
@@ -192,6 +193,8 @@ export class Home extends Component {
                     <Checkbox value='opt10'>disassociation</Checkbox>
                     <Checkbox value='opt11'>manic and hypomanic episodes</Checkbox>
                     <Checkbox value='opt12'>excessive sadness</Checkbox>
+                </Stack>
+                <Stack spacing={[1, 5]} direction={['row', 'column']}>
                     <Checkbox value='opt13'>hopelessness</Checkbox>
                     <Checkbox value='opt14'>guilt</Checkbox>
                     <Checkbox value='opt15'>insomnia</Checkbox>
@@ -200,6 +203,10 @@ export class Home extends Component {
                     <Checkbox value='opt19'>excessive stress</Checkbox>
                     <Checkbox value='opt20'>fear</Checkbox>
                     <Checkbox value='opt21'>restlessness</Checkbox>
+                    <Checkbox value='opt22'>fatigue</Checkbox>
+                    <Checkbox value='opt21'>restlessness</Checkbox>
+                </Stack>
+                <Stack spacing={[1, 5]} direction={['row', 'column']}>
                     <Checkbox value='opt22'>fatigue</Checkbox>
                     <Checkbox value='opt21'>panic</Checkbox>
                     <Checkbox value='opt22'>obsession</Checkbox>
@@ -211,6 +218,8 @@ export class Home extends Component {
                     <Checkbox value='opt28'>irritable</Checkbox>
                     <Checkbox value='opt29'>social disruption</Checkbox>
                     <Checkbox value='opt30'>amnesia</Checkbox>
+                </Stack>
+                <Stack spacing={[1, 5]} direction={['row', 'column']}>
                     <Checkbox value='opt31'>derealization</Checkbox>
                     <Checkbox value='opt32'>gender confusion</Checkbox>
                     <Checkbox value='opt33'>identity confusion</Checkbox>
@@ -221,9 +230,8 @@ export class Home extends Component {
                     <Checkbox value='opt38'>cravings</Checkbox>
                     <Checkbox value='opt39'>paranoia</Checkbox>
                     <Checkbox value='opt40'>unpredictable behavior</Checkbox>
-
-
                 </Stack>
+            </HStack>
             </CheckboxGroup>
 
             <Input
