@@ -84,7 +84,7 @@ export class Home extends Component {
         </Box>
 
         {/* Get Started Modal */}
-        <Modal isOpen={isGetStartedModalOpen} onClose={this.closeGetStartedModal}>
+        <Modal isOpen={isGetStartedModalOpen} size={"full"} onClose={this.closeGetStartedModal}>
           <ModalOverlay />
           <ModalContent>
             <ModalHeader>Enter Demographic Info</ModalHeader>
@@ -182,35 +182,65 @@ export class Home extends Component {
                 size="lg"
             />
         </VStack>
-        <Heading fontSize="sm">Select Symptoms</Heading>
+        <Heading fontSize="xl">Select Symptoms</Heading>
         <VStack
             align="start"
             width="full" // Use "full" to match the parent's width or define a specific max-width
             >
 
-            {/* Checkbox for symptoms */}
+            {/* Checkboxes for symptoms */}
             <CheckboxGroup colorScheme='green' defaultValue={['']}>
+            <HStack spacing={210}>
                 <Stack spacing={[1, 5]} direction={['row', 'column']}>
-                    <Checkbox value='opt1'>hallucinations</Checkbox>
-                    <Checkbox value='opt2'>disorganized speech</Checkbox>
-                    <Checkbox value='opt3'>disorganized motor behavior</Checkbox>
-                    <Checkbox value='opt4'>excessive sadness</Checkbox>
-                    <Checkbox value='opt5'>irritability</Checkbox>
-                    <Checkbox value='opt7'>Excessive fear and anxiety</Checkbox>
-                    <Checkbox value='opt8'>pervasive avoidance behaviors</Checkbox>
-                    <Checkbox value='opt9'>panic attacks</Checkbox>
-                    <Checkbox value='opt10'>repetitive behavior</Checkbox>
-                    <Checkbox value='opt11'>obsessional jealousy</Checkbox>
-                    <Checkbox value='opt12'>traumatic event in past</Checkbox>
-                    <Checkbox value='opt13'>memory and identity lapses</Checkbox>
-                    <Checkbox value='opt14'>disorganized perception, emotion, and consciousness</Checkbox>
-                    <Checkbox value='opt15'>disorganized motor control and behavior</Checkbox>
-                    <Checkbox value='opt16'>substance abuse</Checkbox>
-                    <Checkbox value='opt18'>low levels of self control</Checkbox>
-                    <Checkbox value='opt19'>pervasiveness</Checkbox>
-                    <Checkbox value='opt20'>inflexible/close-minded</Checkbox>
-                    <Checkbox value='opt21'>behaviors deviate from individual expectations</Checkbox>
+                    <Checkbox value='opt1'>delusions</Checkbox>
+                    <Checkbox value='opt2'>psychosis</Checkbox>
+                    <Checkbox value='opt3'>disorganized speech</Checkbox>
+                    <Checkbox value='opt4'>social withdrawal</Checkbox>
+                    <Checkbox value='opt5'>catatonia</Checkbox>
+                    <Checkbox value='opt7'>impulsive</Checkbox>
+                    <Checkbox value='opt8'>instability</Checkbox>
+                    <Checkbox value='opt9'>mood swings</Checkbox>
+                    <Checkbox value='opt10'>disassociation</Checkbox>
+                    <Checkbox value='opt11'>manic and hypomanic episodes</Checkbox>
+                    <Checkbox value='opt12'>excessive sadness</Checkbox>
                 </Stack>
+                <Stack spacing={[1, 5]} direction={['row', 'column']}>
+                    <Checkbox value='opt13'>hopelessness</Checkbox>
+                    <Checkbox value='opt15'>insomnia</Checkbox>
+                    <Checkbox value='opt16'>suicidal</Checkbox>
+                    <Checkbox value='opt18'>loneliness</Checkbox>
+                    <Checkbox value='opt19'>excessive stress</Checkbox>
+                    <Checkbox value='opt20'>fear</Checkbox>
+                    <Checkbox value='opt21'>restlessness</Checkbox>
+                    <Checkbox value='opt22'>fatigue</Checkbox>
+                    <Checkbox value='opt21'>restlessness</Checkbox>
+                </Stack>
+                <Stack spacing={[1, 5]} direction={['row', 'column']}>
+                    <Checkbox value='opt22'>fatigue</Checkbox>
+                    <Checkbox value='opt21'>panic</Checkbox>
+                    <Checkbox value='opt22'>obsession</Checkbox>
+                    <Checkbox value='opt23'>repeated behaviors</Checkbox>
+                    <Checkbox value='opt24'>tics</Checkbox>
+                    <Checkbox value='opt25'>intrusive thoughts</Checkbox>
+                    <Checkbox value='opt26'>avoidance behavior</Checkbox>
+                    <Checkbox value='opt27'>repeated flashbacks</Checkbox>
+                    <Checkbox value='opt28'>irritable</Checkbox>
+                    <Checkbox value='opt29'>social disruption</Checkbox>
+                    <Checkbox value='opt30'>amnesia</Checkbox>
+                </Stack>
+                <Stack spacing={[1, 5]} direction={['row', 'column']}>
+                    <Checkbox value='opt31'>derealization</Checkbox>
+                    <Checkbox value='opt32'>gender confusion</Checkbox>
+                    <Checkbox value='opt33'>identity confusion</Checkbox>
+                    <Checkbox value='opt34'>sexual confusion</Checkbox>
+                    <Checkbox value='opt35'>drug abuse</Checkbox>
+                    <Checkbox value='opt36'>reward-seeking</Checkbox>
+                    <Checkbox value='opt37'>addiction</Checkbox>
+                    <Checkbox value='opt38'>cravings</Checkbox>
+                    <Checkbox value='opt39'>paranoia</Checkbox>
+                    <Checkbox value='opt40'>unpredictable behavior</Checkbox>
+                </Stack>
+            </HStack>
             </CheckboxGroup>
 
             <Input
