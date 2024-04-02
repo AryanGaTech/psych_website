@@ -188,7 +188,7 @@ export class Home extends Component {
             width="full" // Use "full" to match the parent's width or define a specific max-width
             >
 
-            {/* Checkbox for symptoms */}
+            {/* Checkboxes for symptoms */}
             <CheckboxGroup colorScheme='green' defaultValue={['']}>
             <HStack spacing={210}>
                 <Stack spacing={[1, 5]} direction={['row', 'column']}>
