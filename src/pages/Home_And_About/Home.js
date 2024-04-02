@@ -206,7 +206,6 @@ export class Home extends Component {
                 </Stack>
                 <Stack spacing={[1, 5]} direction={['row', 'column']}>
                     <Checkbox value='opt13'>hopelessness</Checkbox>
-                    <Checkbox value='opt14'>guilt</Checkbox>
                     <Checkbox value='opt15'>insomnia</Checkbox>
                     <Checkbox value='opt16'>suicidal</Checkbox>
                     <Checkbox value='opt18'>loneliness</Checkbox>
