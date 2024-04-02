@@ -30,7 +30,7 @@ export const Footer = () => {
     return (
     <>
         <HStack
-        bg="white" 
+        bg="white"
         height='9vh'
         width='100vw'
         align='center'
@@ -84,7 +84,7 @@ export const Footer = () => {
                     <ListIcon as={MdCheckCircle} color="green.500" />
                     Emily Yang
                 </ListItem>
-            
+
             </List>
   </Box>
             </ModalBody>
@@ -95,7 +95,7 @@ export const Footer = () => {
             </ModalFooter>
             </ModalContent>
         </Modal>
-    
+
     </>
     )
 }

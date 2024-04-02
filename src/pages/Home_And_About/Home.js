@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Checkbox, CheckboxGroup, Stack } from '@chakra-ui/react'
+import {Welcome} from './Welcome'
+import {OurPurpose} from './OurPurpose'
+import {HowItWorks} from './HowItWorks'
+import {WhatMakesUsDifferent} from './WhatMakesUsDifferent'
 import {
     NumberInput,
     NumberInputField,
@@ -25,6 +29,9 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 
+
+
+
 export class Home extends Component {
   constructor(props) {
     super(props);
@@ -46,6 +53,9 @@ export class Home extends Component {
   render() {
     const { isGetStartedModalOpen, isLearnMoreModalOpen } = this.state;
     return (
+      <VStack>
+
+
       <Center w="100vw" h="100vh" bg="white">
         <Box w="60vw" h="70vh" bg="white" display="flex" padding={10} color="black" justifyContent="center">
           <VStack>
@@ -128,7 +138,7 @@ export class Home extends Component {
             </Select>
         </HStack>
 
-        
+
         <VStack
             align={'left'}
             width="full" // Use "full" to match the parent's width or define a specific max-width
@@ -269,6 +279,17 @@ export class Home extends Component {
           </ModalContent>
         </Modal>
       </Center>
+
+      <vstack>
+            <Welcome />
+            <OurPurpose />
+            <WhatMakesUsDifferent />
+            <HowItWorks />
+        </vstack>
+
+      </VStack>
+
+
     );
   }
 }
