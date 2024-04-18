@@ -29,6 +29,11 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 
+//routes
+
+// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Diagnosis } from './Diagnosis';
+import { Link } from 'react-router-dom';
 
 
 
@@ -39,6 +44,20 @@ export class Home extends Component {
     this.state = {
       isGetStartedModalOpen: false,
       isLearnMoreModalOpen: false,
+      firstName: "",
+      middleInitial: "",
+      lastName: "",
+      age: "",
+      education: "",
+      ethnicity: "",
+      vetStatus: "",
+      history: "",
+      substanceUseDescription: "",
+      selectedSymptoms: [],
+      symptomDescription: "",
+      isGetStartedModalOpen: false,
+      isLearnMoreModalOpen: false,
+      isSubmitButtonClicked: false,
     };
   }
 
@@ -49,10 +68,73 @@ export class Home extends Component {
   // Methods to handle opening and closing the Learn More modal
   openLearnMoreModal = () => this.setState({ isLearnMoreModalOpen: true });
   closeLearnMoreModal = () => this.setState({ isLearnMoreModalOpen: false });
+  
+  //method to handle submit button logic
 
+  handleSubmit = async (e) => {
+    // Prevent the default form submission behavior
+    // e.preventDefault();
+
+    // Extract the form data from the state
+    const formData = {
+        firstName: this.state.firstName,
+        middleInitial: this.state.middleInitial,
+        lastName: this.state.lastName,
+        age: this.state.age,
+        education: this.state.education,
+        ethnicity: this.state.ethnicity,
+        vetStatus: this.state.vetStatus,
+        history: this.state.history,
+        substanceUseDescription: this.state.substanceUseDescription,
+        selectedSymptoms: this.state.selectedSymptoms,
+        symptomDescription: this.state.symptomDescription
+    };
+
+    // Send a POST request to the server
+    try {
+        const response = await fetch('http://localhost:8000/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+
+        // Check if the request was successful
+        if (response.ok) {
+            // Handle success
+            console.log('Form submitted successfully!');
+            // Reset the form fields if needed
+            this.setState({
+                firstName: "",
+                middleInitial: "",
+                lastName: "",
+                age: "",
+                education: "",
+                ethnicity: "",
+                vetStatus: "",
+                history: "",
+                substanceUseDescription: "",
+                selectedSymptoms: [],
+                symptomDescription: ""
+            });
+
+            window.location.href = '/Diagnosis';
+        } else {
+            // Handle error
+            console.error('Error submitting form.');
+        }
+    } catch (error) {
+        // Handle unexpected error
+        console.error('An unexpected error occurred:', error);
+    }
+};
+
+  
   render() {
     const { isGetStartedModalOpen, isLearnMoreModalOpen } = this.state;
     return (
+
       <VStack>
 
 
@@ -100,15 +182,21 @@ export class Home extends Component {
             <Input
                 placeholder="First Name"
                 size="lg"
+                value={this.state.firstName}
+                onChange={(e) => this.setState({ firstName: e.target.value })}
             />
             <Input
                 placeholder="M"
                 size="lg"
                 width="20%"
+                value={this.state.middleInitial}
+                onChange={(e) => this.setState({ middleInitial: e.target.value })}
             />
             <Input
                 placeholder="Last Name"
                 size="lg"
+                value={this.state.lastName}
+                onChange={(e) => this.setState({ lastName: e.target.value })}
             />
         </HStack>
 
@@ -118,14 +206,21 @@ export class Home extends Component {
             justifyContent="space-between"
             >
             <Text textSize={'lg'} align={'left'}>Age</Text>
-            <NumberInput width={'30%'} min={0}>
+            <NumberInput width={'30%'} min={0}
+            value={this.state.age}
+            onChange={(valueAsString, valueAsNumber) => this.setState({ age: valueAsString })}
+            >
                 <NumberInputField />
                 <NumberInputStepper>
                     <NumberIncrementStepper />
                     <NumberDecrementStepper />
                 </NumberInputStepper>
             </NumberInput>
-            <Select placeholder='Select Education' size={'lg'}>
+
+            <Select placeholder='Select Education' size={'lg'} 
+                value={this.state.education}
+                onChange={(e) => this.setState({ education: e.target.value })}>
+
                 <option value='option1'>No Schooling</option>
                 <option value='option2'>Some High School or Less</option>
                 <option value='option3'>High School Graduate/GED</option>
@@ -144,14 +239,14 @@ export class Home extends Component {
             width="full" // Use "full" to match the parent's width or define a specific max-width
             justifyContent="space-between"
             >
-            <CheckboxGroup colorScheme='green' defaultValue={['']}>
+            <CheckboxGroup colorScheme='green' defaultValue={['']} onChange={(values) => this.setState({ ethnicity: values })}>
                 <Stack spacing={[1, 5]} direction={['row', 'column']}>
-                    <Checkbox value='opt1'>American Indian or Alaskan Native</Checkbox>
-                    <Checkbox value='opt2'>Asian</Checkbox>
-                    <Checkbox value='opt3'>Black or African Descent</Checkbox>
-                    <Checkbox value='opt4'>Hispanic</Checkbox>
-                    <Checkbox value='opt5'>White</Checkbox>
-                    <Checkbox value='opt6'>Other</Checkbox>
+                    <Checkbox value='American Indian or Alaskan Native'>American Indian or Alaskan Native</Checkbox>
+                    <Checkbox value='Asian'>Asian</Checkbox>
+                    <Checkbox value='Black or African Descent'>Black or African Descent</Checkbox>
+                    <Checkbox value='Hispanic'>Hispanic</Checkbox>
+                    <Checkbox value='White'>White</Checkbox>
+                    <Checkbox value='Other'>Other</Checkbox>
                 </Stack>
             </CheckboxGroup>
         </VStack>
@@ -160,19 +255,19 @@ export class Home extends Component {
             width="full" // Use "full" to match the parent's width or define a specific max-width
             justifyContent="space-between"
             >
-            <Select placeholder='Veteran Status' size={'lg'}>
-                <option value='option1'>Veteran</option>
-                <option value='option2'>Non-veteran</option>
-                <option value='option3'>Prefer not to say</option>
+            <Select placeholder='Veteran Status' size={'lg'} onChange={(e) => this.setState({ vetStatus: e.target.value })}>
+                <option value='Veteran'>Veteran</option>
+                <option value='Non-veteran'>Non-veteran</option>
+                <option value='Prefer not to say'>Prefer not to say</option>
             </Select>
         </HStack>
         <VStack
             width="full" // Use "full" to match the parent's width or define a specific max-width
             justifyContent="space-between"
             >
-            <Select placeholder='History of Substance Use' size={'lg'}>
-                <option value='option1'>Yes</option>
-                <option value='option2'>No</option>
+            <Select placeholder='History of Substance Use' size={'lg'} onChange={(e) => this.setState({ history: e.target.value })}>
+                <option value='Yes'>Yes</option>
+                <option value='No'>No</option>
             </Select>
             <Text>
                 If the patient has a history of substance use, please describe it below.
@@ -180,6 +275,7 @@ export class Home extends Component {
             <Input
                 placeholder=" "
                 size="lg"
+                onChange={(e) => this.setState({ substanceUseDescription: e.target.value })}
             />
         </VStack>
         <Heading fontSize="xl">Select Symptoms</Heading>
@@ -189,56 +285,56 @@ export class Home extends Component {
             >
 
             {/* Checkboxes for symptoms */}
-            <CheckboxGroup colorScheme='green' defaultValue={['']}>
+            <CheckboxGroup colorScheme='green' defaultValue={['']} onChange={(values) => this.setState({ selectedSymptoms: values })}>
             <HStack spacing={210}>
                 <Stack spacing={[1, 5]} direction={['row', 'column']}>
-                    <Checkbox value='opt1'>delusions</Checkbox>
-                    <Checkbox value='opt2'>psychosis</Checkbox>
-                    <Checkbox value='opt3'>disorganized speech</Checkbox>
-                    <Checkbox value='opt4'>social withdrawal</Checkbox>
-                    <Checkbox value='opt5'>catatonia</Checkbox>
-                    <Checkbox value='opt7'>impulsive</Checkbox>
-                    <Checkbox value='opt8'>instability</Checkbox>
-                    <Checkbox value='opt9'>mood swings</Checkbox>
-                    <Checkbox value='opt10'>disassociation</Checkbox>
-                    <Checkbox value='opt11'>manic and hypomanic episodes</Checkbox>
-                    <Checkbox value='opt12'>excessive sadness</Checkbox>
+                    <Checkbox value='delusions'>delusions</Checkbox>
+                    <Checkbox value='psychosis'>psychosis</Checkbox>
+                    <Checkbox value='disorganized speech'>disorganized speech</Checkbox>
+                    <Checkbox value='social withdrawal'>social withdrawal</Checkbox>
+                    <Checkbox value='catatonia'>catatonia</Checkbox>
+                    <Checkbox value='impulsive'>impulsive</Checkbox>
+                    <Checkbox value='instability'>instability</Checkbox>
+                    <Checkbox value='mood swings'>mood swings</Checkbox>
+                    <Checkbox value='disassociation'>disassociation</Checkbox>
+                    <Checkbox value='manic and hypomanic episodes'>manic and hypomanic episodes</Checkbox>
+                    <Checkbox value='excessive sadness'>excessive sadness</Checkbox>
                 </Stack>
                 <Stack spacing={[1, 5]} direction={['row', 'column']}>
-                    <Checkbox value='opt13'>hopelessness</Checkbox>
-                    <Checkbox value='opt15'>insomnia</Checkbox>
-                    <Checkbox value='opt16'>suicidal</Checkbox>
-                    <Checkbox value='opt18'>loneliness</Checkbox>
-                    <Checkbox value='opt19'>excessive stress</Checkbox>
-                    <Checkbox value='opt20'>fear</Checkbox>
-                    <Checkbox value='opt21'>restlessness</Checkbox>
-                    <Checkbox value='opt22'>fatigue</Checkbox>
-                    <Checkbox value='opt21'>restlessness</Checkbox>
+                    <Checkbox value='hopelessness'>hopelessness</Checkbox>
+                    <Checkbox value='insomnia'>insomnia</Checkbox>
+                    <Checkbox value='suicidal'>suicidal</Checkbox>
+                    <Checkbox value='loneliness'>loneliness</Checkbox>
+                    <Checkbox value='excessive stress'>excessive stress</Checkbox>
+                    <Checkbox value='fear'>fear</Checkbox>
+                    <Checkbox value='restlessness'>restlessness</Checkbox>
+                    <Checkbox value='fatigue'>fatigue</Checkbox>
+                    <Checkbox value='restlessness'>restlessness</Checkbox>
                 </Stack>
                 <Stack spacing={[1, 5]} direction={['row', 'column']}>
-                    <Checkbox value='opt22'>fatigue</Checkbox>
-                    <Checkbox value='opt21'>panic</Checkbox>
-                    <Checkbox value='opt22'>obsession</Checkbox>
-                    <Checkbox value='opt23'>repeated behaviors</Checkbox>
-                    <Checkbox value='opt24'>tics</Checkbox>
-                    <Checkbox value='opt25'>intrusive thoughts</Checkbox>
-                    <Checkbox value='opt26'>avoidance behavior</Checkbox>
-                    <Checkbox value='opt27'>repeated flashbacks</Checkbox>
-                    <Checkbox value='opt28'>irritable</Checkbox>
-                    <Checkbox value='opt29'>social disruption</Checkbox>
-                    <Checkbox value='opt30'>amnesia</Checkbox>
+                    <Checkbox value='fatigue'>fatigue</Checkbox>
+                    <Checkbox value='panic'>panic</Checkbox>
+                    <Checkbox value='obsession'>obsession</Checkbox>
+                    <Checkbox value='repeated behaviors'>repeated behaviors</Checkbox>
+                    <Checkbox value='tics'>tics</Checkbox>
+                    <Checkbox value='intrusive thoughts'>intrusive thoughts</Checkbox>
+                    <Checkbox value='avoidance behavior'>avoidance behavior</Checkbox>
+                    <Checkbox value='repeated flashbacks'>repeated flashbacks</Checkbox>
+                    <Checkbox value='irritable'>irritable</Checkbox>
+                    <Checkbox value='social disruption'>social disruption</Checkbox>
+                    <Checkbox value='amnesia'>amnesia</Checkbox>
                 </Stack>
                 <Stack spacing={[1, 5]} direction={['row', 'column']}>
-                    <Checkbox value='opt31'>derealization</Checkbox>
-                    <Checkbox value='opt32'>gender confusion</Checkbox>
-                    <Checkbox value='opt33'>identity confusion</Checkbox>
-                    <Checkbox value='opt34'>sexual confusion</Checkbox>
-                    <Checkbox value='opt35'>drug abuse</Checkbox>
-                    <Checkbox value='opt36'>reward-seeking</Checkbox>
-                    <Checkbox value='opt37'>addiction</Checkbox>
-                    <Checkbox value='opt38'>cravings</Checkbox>
-                    <Checkbox value='opt39'>paranoia</Checkbox>
-                    <Checkbox value='opt40'>unpredictable behavior</Checkbox>
+                    <Checkbox value='derealization'>derealization</Checkbox>
+                    <Checkbox value='gender confusion'>gender confusion</Checkbox>
+                    <Checkbox value='identity confusion'>identity confusion</Checkbox>
+                    <Checkbox value='sexual confusion'>sexual confusion</Checkbox>
+                    <Checkbox value='drug abuse'>drug abuse</Checkbox>
+                    <Checkbox value='reward-seeking'>reward-seeking</Checkbox>
+                    <Checkbox value='addiction'>addiction</Checkbox>
+                    <Checkbox value='cravings'>cravings</Checkbox>
+                    <Checkbox value='paranoia'>paranoia</Checkbox>
+                    <Checkbox value='unpredictable behavior'>unpredictable behavior</Checkbox>
                 </Stack>
             </HStack>
             </CheckboxGroup>
@@ -246,6 +342,7 @@ export class Home extends Component {
             <Input
                 placeholder="Describe symptoms further here: "
                 size="lg"
+                onChange={(e) => this.setState({ symptomDescription: e.target.value })}
             />
 
         </VStack>
@@ -255,7 +352,21 @@ export class Home extends Component {
               <Button colorScheme="blue" mr={3} onClick={this.closeGetStartedModal}>
                 Close
               </Button>
-              <Button variant="ghost">Submit</Button>
+              <Button variant="ghost" onClick={async () => {
+                  // Check if form is already submitting
+                  if (!this.state.isSubmitting) {
+                    // Set flag to indicate form submission in progress
+                    this.setState({ isSubmitting: true });
+                    // Call handleSubmit function
+                    await this.handleSubmit();
+                    // Close modal after submission
+                    this.closeGetStartedModal();
+                    // Reset flag after submission is complete
+                    this.setState({ isSubmitting: false });
+                  }
+              }}>
+                  Submit
+              </Button>
             </ModalFooter>
           </ModalContent>
         </Modal>
@@ -288,7 +399,7 @@ export class Home extends Component {
 
       </VStack>
 
-
     );
   }
 }
+
